@@ -22,7 +22,7 @@ The hearing and the voice run local: free, offline models on your machine, no vo
 ## Install
 
 ```
-git clone https://github.com/m477h411-m/backtalk
+git clone https://github.com/m477h411-m/voicebox
 cd backtalk
 ./install.sh
 ```
@@ -52,17 +52,6 @@ Two engines, and the setup wizard offers you both instead of quietly defaulting.
 **Built-in (Kokoro), the free one.** Local, offline, no accounts, no per-word costs, and honestly a bit computer-sounding. The default voice is `bm_lewis`, a British male with exactly the butler register. Around 60 voices ship free; set `voice` in `backtalk.json` (the first letter picks the language: `a` is American, `b` is British, and there are Spanish, French, Hindi, Italian, Japanese, Portuguese, and Chinese voices too).
 
 **ElevenLabs, the natural one.** The human-sounding voice most people actually want, on your own API key. The free tier is enough to audition it; day-to-day talking runs on the paid starter plan. The wizard walks the whole thing with you: account, key into the keychain, then an audition of real voices through backtalk's own mouth until one fits. Want the exact voice from my videos? It's called **Tarquin** in the ElevenLabs voice library: search it by name and you're done hunting. Under the hood it is: set `elevenlabs.enabled` and your `voice_id` in the config, and have `ffmpeg` installed. **The key never goes in a file.** On macOS, seed it into the Keychain once with `security add-generic-password -a "$USER" -s backtalk-elevenlabs -T /usr/bin/security -w` (it prompts for the secret) and backtalk reads it from there. Linux: `secret-tool store --label backtalk service backtalk-elevenlabs`. The `ELEVENLABS_API_KEY` environment variable works as a last resort, but an export in a shell profile is a plaintext key on disk; the keychain is the grown-up path. Kokoro stays wired in as the automatic fallback, so if the cloud fails the voice degrades instead of going mute, and `logs/backtalk.log` records why.
-
-## Give it a face (optional)
-
-backtalk writes tiny state files while it listens, thinks, and speaks, so anything can watch them and react in real time.
-
-- **[ai-visualizer](https://github.com/jaredrhod/ai-visualizer)** is the matching face: four full-screen visualizers, including the living circuit board from my videos. Point its `bus_dir` at this folder (or set `signals_dir` here to its folder) and it performs your actual conversation, idling, listening, thinking, and speaking along with the voice.
-- **[barehands](https://github.com/jaredrhod/barehands)**: point `barehands_state_dir` at its `state/` folder and the on-screen ring becomes your agent's face, breathing while idle, spinning while thinking, and pulsing with the voice while it talks.
-
-Mind ([ai-memory-vault](https://github.com/m477h411-m/ai-memory-vault)), mouth (this), face (ai-visualizer), 
-
-## The fine print that matters
 
 - **Usage:** every spoken turn is a real Claude Code turn, so a long voice session uses your plan the same way a long typing session does. The config pins the fast model tier on purpose; it's most of the speed, and it's the lighter draw.
 - **Permissions: ask first, auto-approve by choice.** The default is `"ask"`: gated actions get a spoken permission check, answered by voice or by typing, and silence for about 75 seconds means no. `"bypassPermissions"` is auto-approve: the agent acts without asking, exactly like a terminal session with approvals off. Never hand-edit the file to switch; tell your agent to change it (takes effect the next time the voice line starts), or say "stop asking for permission" / "start asking again" in a voice session for a flip that happens immediately and saves itself.
