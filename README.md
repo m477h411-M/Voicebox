@@ -1,6 +1,5 @@
 # backtalk
 
-> **Never used Claude Code?** Start at [jaredrhod.com](https://jaredrhod.com): pick your situation and it routes you to the right path.
 
 **Runs on:** Claude Code only; the voice is built on Claude's agent SDK. The $20 Pro plan is enough.
 
@@ -11,7 +10,7 @@ The hearing and the voice run local: free, offline models on your machine, no vo
 ## What it does
 
 - **Hold a key, talk, release.** Your words are transcribed locally and handed to a live Claude Code session. The reply is spoken sentence by sentence as it's generated, with first audio in about 1 to 2 seconds on warm turns. Prefer no button at all? **Hands-free listening** is one spoken sentence away ("go hands free"), and the key keeps working there as your interrupt.
-- **It's YOUR agent talking.** The session runs in the folder whose CLAUDE.md defines your assistant: same name, same personality, same memory as your terminal sessions. backtalk has no personality of its own; it's a mouth and ears for whoever you already have. (No agent yet? The [ai-memory-vault](https://github.com/jaredrhod/ai-memory-vault) build ships with mine, Jarvis, ready to use.)
+- **It's YOUR agent talking.** The session runs in the folder whose CLAUDE.md defines your assistant: same name, same personality, same memory as your terminal sessions. backtalk has no personality of its own; it's a mouth and ears for whoever you already have. (No agent yet? The [ai-memory-vault](https://github.com/m477h411-m/ai-memory-vault) build ships with mine, Jarvis, ready to use.)
 - **Interrupt it.** Press the key while it's talking and it shuts up and listens. No headphones needed, because the mic only opens while you hold the key, so it never hears the speakers.
 - **Type instead whenever you want.** Typing in the terminal is the same conversation, and the reply is still spoken.
 - **It asks before it acts, in plain words.** When your agent wants to do something real, it asks out loud the way a person would ("I want to change a note in your vault called Recipes") and waits. An exact spoken yes approves; "details" reads you the exact command; anything else denies, with your words passed back as the reason, so "no, put that in drafts instead" actually steers it. Most read-only work passes without interrupting. Prefer auto-approve? Say "stop asking for permission" (or "turn off the permission prompts") and confirm; it changes its own config, and the first ask of every session reminds you the phrase exists.
@@ -23,7 +22,7 @@ The hearing and the voice run local: free, offline models on your machine, no vo
 ## Install
 
 ```
-git clone https://github.com/jaredrhod/backtalk
+git clone https://github.com/m477h411-m/backtalk
 cd backtalk
 ./install.sh
 ```
@@ -32,7 +31,7 @@ The installer sets up a Python environment, the two local AI models (speech-to-t
 
 **The easy way to configure it:** open this folder in Claude Code and say *"read backtalk.md and set me up."* The wizard picks your agent folder, your key, and your voice with you, then test-fires the whole loop.
 
-**Already in a Claude Code session with your agent?** One sentence does the whole install: *"clone https://github.com/jaredrhod/backtalk.git, then read backtalk/backtalk.md and set me up."* Your agent runs the installer and the wizard for you.
+**Already in a Claude Code session with your agent?** One sentence does the whole install: *"clone https://github.com/m477h411-m/backtalk.git, then read backtalk/backtalk.md and set me up."* Your agent runs the installer and the wizard for you.
 
 **The manual way:** copy `backtalk.json.example` to `backtalk.json` (your copy is untracked, so updates never touch it), then edit it. Point `agent_dir` at the folder whose CLAUDE.md is your agent, set `name` to your agent's name, pick a `ptt_key`. Then:
 
@@ -61,7 +60,7 @@ backtalk writes tiny state files while it listens, thinks, and speaks, so anythi
 - **[ai-visualizer](https://github.com/jaredrhod/ai-visualizer)** is the matching face: four full-screen visualizers, including the living circuit board from my videos. Point its `bus_dir` at this folder (or set `signals_dir` here to its folder) and it performs your actual conversation, idling, listening, thinking, and speaking along with the voice.
 - **[barehands](https://github.com/jaredrhod/barehands)**: point `barehands_state_dir` at its `state/` folder and the on-screen ring becomes your agent's face, breathing while idle, spinning while thinking, and pulsing with the voice while it talks.
 
-Mind ([ai-memory-vault](https://github.com/jaredrhod/ai-memory-vault)), mouth (this), face (ai-visualizer), hands (barehands).
+Mind ([ai-memory-vault](https://github.com/m477h411-m/ai-memory-vault)), mouth (this), face (ai-visualizer), 
 
 ## The fine print that matters
 
@@ -78,25 +77,16 @@ Speech recognition by [faster-whisper](https://github.com/SYSTRAN/faster-whisper
 
 ## Updating
 
-backtalk improves continuously (several of its best fixes came from this community within hours of being reported). To update on macOS, double-click the `Update` icon setup left on your Desktop, or run `./update.sh` in this folder. On Windows, or any time, say **"pull the latest backtalk and tell me what changed"** to your agent — it does the same job. Your config, your keys, and your agent's identity live outside the tracked files, so updates never touch them. Installed through fullstack-agent? `./fullstack-agent/update.sh` (macOS) updates every piece at once and prints what changed.
+backtalk improves continuously (several of its best fixes came from this community within hours of being reported). To update on macOS, double-click the `Update` icon setup left on your Desktop, or run `./update.sh` in this folder. On Windows, or any time, say **"pull the latest backtalk and tell me what changed"** to your agent — it does the same job. Your config, your keys, and your agent's identity live outside the tracked files, so updates never touch them. 
 
 ## The rest of it
 
 A voice is better with a face and a memory. The visualizer performs the conversation on screen while you talk, and the memory vault is what your agent actually speaks from, so it remembers you between sessions.
 
-- **The whole stack, one command.** [fullstack-agent](https://github.com/jaredrhod/fullstack-agent) installs the memory, the voice, the face, and the hands, and wires them together for you. Pick only the pieces you want: https://jaredrhod.com
-- **The videos.** Free series on all of it: https://youtube.com/@jaredrhod
-- **The Discord.** Thousands of builders, and the fastest place to get unstuck: https://discord.gg/YSdsqMv3V8
-- **Everything else,** free and open: https://jaredrhod.com
 
-## Support
-
-Free to use, and always will be. If this helped you out, you can buy me a coffee:
-
-[![Support me on Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/jaredrhod)
 
 ## License
 
 Copyright (c) 2026 Jared Rhodenizer.
 
-Licensed under the GNU Affero General Public License, version 3 or later (AGPL-3.0-or-later). **Use it in your business, commercially, for free.** Run it, change it, build your workflow on top of it, and charge for the work you do with it. The one rule is that it stays open: if you hand it to someone else, or run a modified version as a service other people use, your version ships under this same license with its source available. Credit me when you build on it. Want it inside a closed-source commercial product? Email license@jaredrhod.com. Full terms are in the LICENSE file and at https://www.gnu.org/licenses/agpl-3.0.html
+Licensed under the GNU Affero General Public License, version 3 or later (AGPL-3.0-or-later). **Use it in your business, commercially, for free.** Run it, change it, build your workflow on top of it, and charge for the work you do with it. The one rule is that it stays open: if you hand it to someone else, or run a modified version as a service other people use, your version ships under this same license with its source available. Credit me when you build on it. Want it inside a closed-source commercial product? Email m477h411@gmail.com. Full terms are in the LICENSE file and at https://www.gnu.org/licenses/agpl-3.0.html
