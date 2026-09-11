@@ -1,0 +1,20 @@
+{
+  "name": "voicebox",
+  "owner": {
+    "name": "Matthew Hall",
+    "url": "https://github.com/m477h411-M"
+  },
+  "plugins": [
+    {
+      "name": "backtalk",
+      "source": "./",
+      "displayName": "backtalk",
+      "description": "Talk to your Claude Code agent out loud. Hold a key, say the thing, and your own assistant answers through your speakers in a real voice about a second later. Installs the voice loop and walks you through the setup: agent folder, talk key, voice engine, permissions, then a test-fire of the whole loop.",
+      "version": "1.0.0",
+      "homepage": "https://github.com/m477h411-M/Voicebox",
+      "repository": "https://github.com/m477h411-M/Voicebox",
+      "license": "AGPL-3.0-or-later",
+      "keywords": ["voice", "speech", "text-to-speech", "push-to-talk", "agent", "claude-code"]
+    }
+  ]
+}

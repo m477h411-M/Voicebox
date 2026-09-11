@@ -1,0 +1,13 @@
+{
+  "name": "backtalk",
+  "description": "Bootstraps and configures backtalk, the local voice loop for a Claude Code agent.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Matthew Hall",
+    "url": "https://github.com/m477h411-M"
+  },
+  "homepage": "https://github.com/m477h411-M/Voicebox",
+  "repository": "https://github.com/m477h411-M/Voicebox",
+  "license": "AGPL-3.0-or-later",
+  "keywords": ["voice", "speech", "text-to-speech", "push-to-talk", "agent", "claude-code"]
+}

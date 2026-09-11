@@ -1,6 +1,5 @@
 # backtalk
 
-
 **Runs on:** Claude Code only; the voice is built on Claude's agent SDK. The $20 Pro plan is enough.
 
 Talk to your Claude Code agent out loud. Hold a key, say the thing, and it answers through your speakers in a real voice about a second later, with all its tools, your project context, and its own personality. Your AI finally has something to say back.
@@ -22,16 +21,28 @@ The hearing and the voice run local: free, offline models on your machine, no vo
 ## Install
 
 ```
-git clone https://github.com/m477h411-m/voicebox
-cd backtalk
+git clone https://github.com/m477h411-M/Voicebox.git
+cd Voicebox
 ./install.sh
 ```
 
 The installer sets up a Python environment, the two local AI models (speech-to-text and the voice), and the one system library they need. First run downloads the models (about 1 GB total); everything after is instant. Prerequisites: [Claude Code](https://claude.com/claude-code) with a Claude subscription, and `uv` (the installer offers to install it).
 
-**The easy way to configure it:** open this folder in Claude Code and say *"read backtalk.md and set me up."* The wizard picks your agent folder, your key, and your voice with you, then test-fires the whole loop.
+**The easy way to configure it:** open this folder in Claude Code and say *"set me up."* The repo's own `CLAUDE.md` loads on the way in, so your agent already knows to read `backtalk.md` and run the wizard with you: your agent folder, your key, and your voice, then a test-fire of the whole loop.
 
-**Already in a Claude Code session with your agent?** One sentence does the whole install: *"clone https://github.com/m477h411-m/backtalk.git, then read backtalk/backtalk.md and set me up."* Your agent runs the installer and the wizard for you.
+**Already in a Claude Code session with your agent?** One sentence does the whole install: *"clone https://github.com/m477h411-M/Voicebox.git, then read Voicebox/backtalk.md and set me up."* Your agent runs the installer and the wizard for you.
+
+**Or install it as a plugin,** so any session can set it up without you going and finding the URL. One command at a time, each on its own line:
+
+```
+/plugin marketplace add https://github.com/m477h411-M/Voicebox.git
+```
+
+```
+/plugin install backtalk@voicebox
+```
+
+Then say **"set up backtalk"** in any Claude Code session. The plugin only bootstraps: it clones a working copy into a folder you pick and runs the wizard there. Your config, your virtualenv and your downloaded models must not live in a plugin directory, because a plugin update replaces it.
 
 **The manual way:** copy `backtalk.json.example` to `backtalk.json` (your copy is untracked, so updates never touch it), then edit it. Point `agent_dir` at the folder whose CLAUDE.md is your agent, set `name` to your agent's name, pick a `ptt_key`. Then:
 
@@ -66,13 +77,11 @@ Speech recognition by [faster-whisper](https://github.com/SYSTRAN/faster-whisper
 
 ## Updating
 
-backtalk improves continuously (several of its best fixes came from this community within hours of being reported). To update on macOS, double-click the `Update` icon setup left on your Desktop, or run `./update.sh` in this folder. On Windows, or any time, say **"pull the latest backtalk and tell me what changed"** to your agent — it does the same job. Your config, your keys, and your agent's identity live outside the tracked files, so updates never touch them. 
+backtalk improves continuously (several of its best fixes came from this community within hours of being reported). To update on macOS, double-click the `Update` icon setup left on your Desktop, or run `./update.sh` in this folder. On Windows, or any time, say **"pull the latest backtalk and tell me what changed"** to your agent — it does the same job. Installed as a plugin? `/plugin update backtalk@voicebox` refreshes the bootstrap; your working copy updates the normal way. Your config, your keys, and your agent's identity live outside the tracked files, so updates never touch them.
 
 ## The rest of it
 
 A voice is better with a face and a memory. The visualizer performs the conversation on screen while you talk, and the memory vault is what your agent actually speaks from, so it remembers you between sessions.
-
-
 
 ## License
 
