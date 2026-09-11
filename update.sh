@@ -1,6 +1,5 @@
 #!/bin/bash
 # backtalk — update to the newest version, showing what changed first.
-# Copyright (C) 2026 Jared Rhodenizer
 # SPDX-License-Identifier: AGPL-3.0-or-later
 #
 # Your backtalk.json is yours: nothing in this script can touch or overwrite it.
@@ -14,7 +13,7 @@ main() {
     # this folder arrived as a zip: wire it to updates, once, keeping the config
     [ -f "$CFG" ] && cp "$CFG" "$CFG.mine"
     git init -q -b main
-    git remote add origin https://github.com/jaredrhod/backtalk
+    git remote add origin https://github.com/m477h411-m/voicebox
     git fetch -q origin
     git reset -q --hard origin/main
     git branch -q --set-upstream-to=origin/main main
